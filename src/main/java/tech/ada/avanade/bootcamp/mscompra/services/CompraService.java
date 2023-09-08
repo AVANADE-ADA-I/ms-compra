@@ -22,7 +22,10 @@ public class CompraService {
     @Transactional
     public CompraResponseDTO executeCadastrar(CompraRequestDTO dto) {
         var usuario = usuarioService.buscarUsuario(dto.numeroCartao());
+        System.out.println(dto);
+        System.out.println(usuario);
         var compra = new Compra(dto, usuario);
+        System.out.println(compra);
         if (!usuario.getAtivo()) {
             throw new AppException("Cartão está desativado.");
         }

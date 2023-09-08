@@ -16,6 +16,7 @@ public class UsuarioService {
 
     @Transactional
     public String executeCadastrar(UsuarioRequestDTO dto) {
+        System.out.println(dto);
         var usuario = new Usuario(dto);
         this.usuarioRepository.save(usuario);
         return "Cadastrado";
